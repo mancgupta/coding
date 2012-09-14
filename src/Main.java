@@ -1,12 +1,10 @@
-import java.util.List;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.io.BufferedReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
-import java.util.Collections;
 import java.io.InputStream;
 
 /**
@@ -43,26 +41,25 @@ class frac1 {
         }
     }
 
-	public void solve(int testNumber, InputReader in, PrintWriter out) {
+    public void solve(int testNumber, InputReader in, PrintWriter out) {
         int n = in.nextInt();
 
-        dfs(n,1,n,cnt);
+        dfs(n,1,n,0);
 
-        Collections.sort(list);
+//        Collections.sort(list);
 
+        Arrays.sort(arr);
         out.println("0/1");
-        for(fractions f: list){
-            out.println(f.item);
-        }
+        int limit = (n*n - n)/2;
+        for(int i=0;i<limit;i++)
+            out.println(arr[i]);
         out.println("1/1");
-        out.println(cnt);
-	}
+    }
 
-    int cnt= 0;
-    ArrayList<fractions> list = new ArrayList<fractions>();
+//    ArrayList<fractions> list = new ArrayList<fractions>();
 
+    fractions [] arr = new fractions[20000];
     void dfs(int n , int num, int deno, int i){
-        cnt = i;
         if(deno == 0 || num>deno){
             return;
         }
@@ -76,7 +73,7 @@ class frac1 {
             double value = (num*1.0)/deno;
             String item = num + "/" + deno;
             fractions frac = new fractions(value, item);
-            list.add(frac);
+            arr[i] = frac;
         }
         dfs(n,num+1,deno,i+1);
     }
