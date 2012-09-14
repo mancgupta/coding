@@ -63,17 +63,3 @@ public class TheBasketballDivTwo {
     }
 }
 
-class ArrayHelper {
-
-    public static char [][] toCharArray(String []a){
-        int r = a.length;
-        int c = a[0].length();
-
-        char  [][]ret = new char[r][c];
-        for(int i=0;i<r;i++)
-            for(int j=0;j<c;j++)
-                ret[i][j] = a[i].charAt(j);
-        return ret;
-    }
-}
-
