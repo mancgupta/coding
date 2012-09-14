@@ -24,7 +24,7 @@ public class frac1 {
         }
     }
 
-	public void solve(int testNumber, InputReader in, PrintWriter out) {
+    public void solve(int testNumber, InputReader in, PrintWriter out) {
         int n = in.nextInt();
 
         dfs(n,1,n,0);
@@ -37,7 +37,7 @@ public class frac1 {
         for(int i=0;i<limit;i++)
             out.println(arr[i]);
         out.println("1/1");
-	}
+    }
 
 //    ArrayList<fractions> list = new ArrayList<fractions>();
 
