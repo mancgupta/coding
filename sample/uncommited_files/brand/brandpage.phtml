@@ -1,0 +1,159 @@
+<?php
+/**
+ * User: Manchit Gupta
+ * Date: 5/9/12
+ * Time: 5:28 PM
+ */
+?>
+
+<script src="/sites/all/themes/basic/ci_js/brandpage/jquery-1.8.1.min.js?version={$asset_version}"></script>
+<script>window.jQuery || document.write('<script src="/sites/all/themes/basic/ci_js/brandpage/jquery.min.js?version={$asset_version}"><\/script>')</script>
+
+
+<!-- Demo stuff -->
+<link rel="stylesheet" href="/sites/all/themes/basic/css/ci_css/brand/page.css?version={$asset_version}" media="screen">
+
+<!-- AnythingSlider -->
+<link rel="stylesheet" href="/sites/all/themes/basic/css/ci_css/brand/anythingslider.css?version={$asset_version}">
+<script src="/sites/all/themes/basic/ci_js/brandpage/jquery.anythingslider.js?version={$asset_version}"></script>
+
+<!-- Ideally, add the stylesheet(s) you are going to use here,
+otherwise they are loaded and appended to the <head> automatically and will over-ride the IE stylesheet below -->
+<link rel="stylesheet" href="/sites/all/themes/basic/css/ci_css/brand/theme-metallic.css?version={$asset_version}">
+<link rel="stylesheet" href="/sites/all/themes/basic/css/ci_css/brand/brandpage.css?version={$asset_version}">
+
+
+<script>
+	$(function(){
+
+		$('#slider1').anythingSlider({
+			theme           : 'metallic',
+			easing          : 'easeInOutBack',
+			buildStartStop      : false,      // ** If true, builds the start/stop button
+			autoPlay            : true,      // This turns off the entire slideshow FUNCTIONALY, not just if it starts running or not
+			pauseOnHover        : true,      // If true & the slideshow is active, the slideshow will pause on hover
+			buildNavigation     : true,      // If true, builds a list of anchor links to link to each panel
+			stopAtEnd           : false,     // If true & the slideshow is active, the slideshow will stop on the last page
+			startText           : null,   // Start button text
+			stopText            : null,    // Stop button text
+			hashTags            : false,    // Removing hash tags functionality which uses bookmarks while AJAX implementation.
+			delay               : 3000,     // How long between slideshow transitions in AutoPlay mode (in milliseconds)
+			enableArrows        : false,      // if false, arrows will be visible, but not clickable.
+			enableNavigation    : false,      // if false, navigation links will still be visible, but not clickable.
+			enableStartStop     : false,      // if false, the play/stop button will still be visible, but not clickable. Previously "enablePlay"
+			enableKeyboard      : false,      // if false, keyboard arrow keys will not work for this slider.
+			animationTime       : 1000
+		});
+	});
+
+</script>
+
+<div id="brand_page">
+	<div class="brand_grayback">
+		<div><img src="/sites/all/themes/basic/images/ci_images/brand_page/store_header.jpg" width="803" height="96" /></div>
+		<div class="shop_now_header">
+			<ul id="slider1">
+				<li>
+					<a href= "http://www.tradus.com/samsung-galaxy-s-advance-i9070-mobile-phone/p/MOB0000004789263" target="_blank">
+						<img src="/sites/all/themes/basic/images/ci_images/brand_page/galaxy-advance.jpg" alt="">
+					</a>
+				</li>
+				<li>
+					<a href="http://www.tradus.com/samsung-galaxy-tab2-310-white/p/MOB0000004785815" target="_blank">
+						<img src="/sites/all/themes/basic/images/ci_images/brand_page/tab2-header.jpg" alt="">
+					</a>
+				</li>
+				<li>
+					<a href="http://www.tradus.com/samsung-galaxy-n8000-note-tablet/p/MOBM9EM9TDBUNHEU" target="_blank">
+						<img src="/sites/all/themes/basic/images/ci_images/brand_page/note-header.jpg" alt="">
+					</a>
+				</li>
+				<li>
+					<a href="http://www.tradus.com/samsung-galaxy-s3-i9300-mobile-phone-white/p/MOBM8UFQK292FHAO" target="_blank">
+						<img src="/sites/all/themes/basic/images/ci_images/brand_page/shop_now_header.jpg" alt="">
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="list_partDiv">
+			<div class="list_leftPart">
+				<div class="samDiv">
+					<p>Samsung Products</p>
+					<div class="list_productDiv">
+						<span class="arrow_left"><a href="#"><img src="/sites/all/themes/basic/images/ci_images/brand_page/arrow_left.png" width="12" height="16"/></a></span>
+                            <span class="mob">
+                                <p><img src="/sites/all/themes/basic/images/ci_images/brand_page/mob1.jpg" width="95" height="109" /> <a href="#">Smart Phones</a></p>
+                            </span>
+                            <span class="mob">
+                                <p><img src="/sites/all/themes/basic/images/ci_images/brand_page/mob1.jpg" width="95" height="109" /> <a href="#">Smart Phones</a></p>
+                            </span>
+                            <span class="mob">
+                                <p><img src="/sites/all/themes/basic/images/ci_images/brand_page/mob1.jpg" width="95" height="109" /> <a href="#">Smart Phones</a></p>
+                            </span>
+						<span class="arrow_right"><a href="#"><img src="/sites/all/themes/basic/images/ci_images/brand_page/arrow_right.png" width="12" height="16"/></a></span>
+						<div class="cl"></div>
+					</div>
+				</div>
+				<div class="samDiv">
+					<h5 class="media_bod">In Media</h5>
+
+					<div class="videoDiv">
+						<iframe width="434" height="245" src="http://www.youtube.com/embed/9nLbIueNuEY" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<h3>The Wonder of 3D</h3>
+					<h4>Get premium-quality 2D picture and incredible 3D depth<br/> with Samsung 3D TVs.</h4>
+				</div>
+				<div class="samDiv">
+
+					<div class="watchDiv">
+						<div><img src="/sites/all/themes/basic/images/ci_images/brand_page/must_watch.gif" width="445" height="32" /></div>
+
+                        <span>
+                            <a href="http://www.youtube.com/watch?v=FQgnUYZGM1M" target="_blank">
+								<img src="/sites/all/themes/basic/images/ci_images/brand_page/c_bg1.jpg" width="108" height="60" />
+								<p>Micro Universe-Samsung NX SYSTEM</p>
+							</a>
+
+                        </span>
+                        <span>
+                            <a href="http://www.youtube.com/watch?v=FQgnUYZGM1M" target="_blank">
+								<img src="/sites/all/themes/basic/images/ci_images/brand_page/c_bg1.jpg" width="108" height="60" />
+
+								<p>Micro Universe-Samsung NX SYSTEM</p>
+							</a>
+
+                        </span>
+                        <span>
+                            <a href="http://www.youtube.com/watch?v=FQgnUYZGM1M" target="_blank">
+								<img src="/sites/all/themes/basic/images/ci_images/brand_page/c_bg1.jpg" width="108" height="60" />
+
+								<p>Micro Universe-Samsung NX SYSTEM</p>
+							</a>
+                        </span>
+
+						<div class="moreDiv">
+						</div>
+
+						<div class="cl"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list_partDiv">
+			<div class="list_rightpart"><h1>Best Seller</h1>
+					<?=$featured_product_strip_1?>
+				</div>
+
+				<div class="cl"></div>
+		</div>
+		<div class="cl"></div>
+		<div class="samDiv2">
+			<p>Most Wanted Mobile Phones</p>
+			<div class="wantedDiv">
+				<?=$featured_product_strip_2?>
+				<div class="cl"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

@@ -1,0 +1,525 @@
+<title>
+	<?php if($head_title):?>
+		<?=$head_title; ?>
+	<?php else:?>
+		Tradus | Online Shopping India - Buy Books, Mobiles, Cameras Online in India
+	<?php endif; ?>
+</title>
+
+<link rel="stylesheet" type="text/css" href="{$cdn_url}sites/all/themes/basic/styles/style.css?version={$asset_version}" />
+<link rel="stylesheet" type="text/css" href="{$cdn_url}sites/all/themes/basic/styles/common_c1c2.css?version={$asset_version}" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="<?=$keywords?>" />
+<meta name="description" content="<?=$description?>" />
+<meta property="og:title" content="<?=$head_title?>" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="<?=$productContent['imgSrcData']?>" />
+<meta property="og:url" content="<?=$destPath?>" />
+<meta property="og:site_name" content="Tradus.com" />
+
+<meta name="description" content='{$description}' />
+<meta name="keywords" content="{$keywords}" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta property="og:title" content="{$head_title}" />
+<meta property="og:image" content="/media/Tradus-com-logo.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="{$description}" />
+<meta property="og:url" content="{$baseURL}{$sSortingURI}" />
+<meta property="og:site_name" content="Tradus.com" />
+
+<link rel="shortcut icon" href="/misc/favicon.ico" type="image/x-icon" />
+{if $canonical eq false}
+<meta name="robots"  content="noindex, follow" />
+{/if}
+<link rel="canonical" href="{$sURLCanonical}" />
+{if $page neq 1}
+<link rel="prev" href="{$sMainURLCanonical}&Page={$page-1}" />
+{/if}
+{if $page lt $iTotalPages}
+<link rel="next" href="{$sMainURLCanonical}&Page={$page+1}" />
+{/if}
+{/block}
+
+{block name=body}
+<script>
+	var url_query ='{$baseURL}';
+	var keySort ='{$keySort}';
+	var sortingURI ='{$sSortingURI}';
+	var CategoryName = '{$aAllSubCategories[$iSubCatCount].urlName}';
+	var keyC = '{$keyClone}';
+	var keyP = '{$keyPrice}';
+	var FeatureFilter ='{$sFinalMobileValues}';
+	var ExistingFilters ='{$filters}';
+	var featKey = '{urlencode($FeatKey)}';
+	var aLeftFilters = '{addslashes(json_encode($aLeftFilters))}';
+	var countSortedLeftFilters = '{addslashes(json_encode($countSortedLeftFilters))}';
+	var filters = '{$filters}';
+	var sFinalMobileValues = '{$sFinalMobileValues}';
+	var sMainURL = '{$sMainURL}';
+	var SortBy = '{$SortBy}';
+</script>
+<script type="text/javascript" src="{$cdn_url}sites/all/themes/basic/ci_js/categoryPages_customized.js?version={$asset_version}"></script>
+
+<!-- Main starts here-->
+<div id="tradus_main" class="prodPageTopMargin">
+
+<div class="clearAll"></div>
+
+<div class="topBreadCrm" style="text-align:left;">
+	<a href="/" title="Online Shopping Home">Online Shopping Home</a>
+	{if isset($aAllCategoryname) && !empty($aAllCategoryname)}
+	&gt;&gt; <span style="font-weight:bold;" title="{$aAllCategoryname[0]->name}">{$aAllCategoryname[0]->name}</span>
+	{/if}
+</div>
+
+{if $iTotalOnPageCount gt 0 && $URLProblem eq problem}
+<!-- left block starts here-->
+<div class="left_block_c1c2">
+
+	{if isset($aAllSubCategories) && !empty($aAllSubCategories)}
+	<div class="slice">
+		<div id="sub-category">
+			<h1>Refine Your Search</h1>
+			<h3><span>Subcategories</span></h3>
+			<ul>
+				{foreach $aAllSubCategories as $ikey=>$aVal}
+				{if $ikey === 'children'}
+				{if isset($aVal) && !empty($aVal)}
+				{if isset($filters) && !empty($filters)}
+				{if isset($sFinalMobileValues) && !empty($sFinalMobileValues)}
+				{assign var="sMobFinallFilter" value="&{$sFinalMobileValues}"}
+				{else}
+				{assign var="sMobFinallFilter" value=""}
+				{/if}
+				{assign var="sFinallFilter" value="/cSk?{$filters}{$sMobFinallFilter}"}
+				{else}
+				{if isset($sFinalMobileValues) && !empty($sFinalMobileValues)}
+				{assign var="sMobFinallFilter" value="{$sFinalMobileValues}"}
+				{else}
+				{assign var="sMobFinallFilter" value=""}
+				{/if}
+				{assign var="sFinallFilter" value="/cSk?{$sMobFinallFilter}"}
+				{/if}
+				{foreach $aVal as $i2key=>$a2Val}
+				{if $mobileAccessoriesId eq $a2Val.value}
+				<li>
+					<a class="Nonfiltered{$iSubCatCount+1}" name="{$a2Val.value}" href="/{$a2Val.urlName}">{$a2Val.name|html_entity_decode|capitalize} <span>({$a2Val.count})</span></a> <!-- {$sFinallFilter} -->
+				</li>
+				{else}
+				<li>
+					<a class="Nonfiltered{$iSubCatCount+1}" name="{$a2Val.value}" href="/{$a2Val.urlName}{$sFinallFilter}">{$a2Val.name|html_entity_decode|capitalize} <span>({$a2Val.count})</span></a> <!-- {$sFinallFilter} -->
+				</li>
+				{/if}
+				{/foreach}
+				{/if}
+				{/if}
+				{/foreach}
+			</ul>
+		</div>
+	</div>
+	<div class="clearAll spacer10"></div>
+	<input type='hidden' name="{$aAllSubCategories[0].name}" id="{$aAllSubCategories[0].value}"/>
+	{/if}
+
+	{if isset($countSortedLeftFilters) && !empty($countSortedLeftFilters)}
+	<div class="slice">
+		{foreach $countSortedLeftFilters as $key => $aLfilter}
+		{foreach $aLfilter as $sFilter=>$afilter}
+		{if $sFilter != 'Price' && $afilter|@count gte 1 && $sFilter != 'Features'}
+		{if !empty($afilter)}
+		{if $sFilter eq 'Cod'}
+		{assign var="snamefilter" value='Cash On Delivery'}
+		{elseif $sFilter eq "'Type'"}
+		{assign var="snamefilter" value='Type'}
+		{else}
+		{assign var="snamefilter" value=$sFilter}
+		{/if}
+		<div id="sub-category">
+			{if $brand_page neq '1' || $snamefilter neq 'Brands'}
+			<h3><span>{$snamefilter}</span></h3>
+			<ul id="sidebar_{$snamefilter}">
+				{foreach $afilter as $namefilter=>$val}
+				{if isset($filters) && !empty($filters)}
+				{assign var="sFinalFilter" value="?{$filters}&{urlencode($sFilter)}={urlencode($val['name'])}"}
+				{else}
+				{assign var="sFinalFilter" value="?{urlencode($sFilter)}={urlencode($val['name'])}"}
+				{/if}
+				{assign var="nfilter" value=$val['name']}
+				{if $sFilter eq 'Cod'}
+				{if $val['name'] eq 'true'}
+				{assign var="nfilter" value="Cash On Delivery"}
+				{else}
+				{assign var="nfilter" value="Exclude Cash On Delivery"}
+				{/if}
+				{/if}
+				{if $sFilter eq 'Availability'}
+				{if $val['name'] eq 'true'}
+				{assign var="nfilter" value="In Stock"}
+				{else}
+				{assign var="nfilter" value="Out Of Stock"}
+				{/if}
+				{/if}
+				{if isset($sFinalMobileValues) && !empty($sFinalMobileValues)}
+				{assign var="sMobfilter" value="&{$sFinalMobileValues}"}
+				{else}
+				{assign var="sMobfilter" value=""}
+				{/if}
+				{if isset($aRemoveFilterVal.$sFilter)}
+				<li><a class="filtered1"><span>{$nfilter|html_entity_decode|capitalize} ({$val['value']})</span></a></li>
+				{else}
+				<li><a href="{$sMainURL}{$sFinalFilter}{$sMobfilter}{$SortBy}">{$nfilter|html_entity_decode|capitalize} <span>({$val['value']})</span></a></li>
+				{/if}
+				{/foreach}
+				{if count($aLeftFilters[$key][$sFilter]) gt 10}
+				<li><a class="filterReduction" show="more" snamefilter="{$snamefilter}" key="{$key}">More >>></a></li>
+				{/if}
+			</ul>
+			{/if}
+		</div>
+		<div class="clearAll spacer10"></div>
+		{/if}
+		{elseif $sFilter eq 'Features' && !in_array($aAllSubCategories[$iSubCatCount].value,$mobileAccessoriesId)}
+		<div id="sub-category">
+			<h3><span>{$sFilter}</span></h3>
+			<ul>
+				{foreach $afilter as $filter=>$val}
+				{foreach  $val as $FeatKey=>$Featval}
+				{if isset($filters) && !empty($filters)}
+				{assign var="sFinalFilter" value="?{$filters}&{urlencode($sFilter)}={urlencode($FeatKey)}"}
+				{else}
+				{assign var="sFinalFilter" value="?{urlencode($sFilter)}={urlencode($FeatKey)}"}
+				{/if}
+				{if $aFinalMobileValues[$FeatKey] eq '"true"'}
+				{assign var="sSelClass" value="checked='checked'"}
+				{else}
+				{assign var="sSelClass" value=""}
+				{/if}
+				<li>
+					<input type="checkbox" id="feature_{urlencode($FeatKey)}" class="checkbox_featkey" {$sSelClass} featkey="{urlencode($FeatKey)}"/>
+					<span>{$FeatKey|regex_replace:"/[_]/":" "}</span>
+				</li>
+				{/foreach}
+				{/foreach}
+			</ul>
+		</div>
+		<div class="clearAll spacer10"></div>
+		{/if}
+		{/foreach}
+		{/foreach}
+	</div>
+	<div class="clearAll spacer10"></div>
+	{/if}
+	<span id="sub-cat-bottom"></span>
+	<div class="clearAll spacer10"></div>
+</div>
+<!-- left block ends here-->
+
+
+<!-- right block starts here-->
+{$banner}
+{if $brand_page neq 1}
+<div class="right_block_c1c2">
+	<h1 class="hc1">{if isset($h1)}{ucwords(strtolower($h1))}{else}{ucwords(strtolower($aAllSubCategories[$iSubCatCount].name))}{/if}</h1>
+	<div class="clearAll spacer10"></div>
+	{if isset($aRemoveFilterVal) && !empty($aRemoveFilterVal)}
+	<div class="filtersummary">
+		<div class="filtered_by"><div id="filtered_by_1">Filtered by:</div>
+			<div id="filterbytextmain">
+				{foreach $aRemoveFilterVal as $skey=>$sVal}
+		<span class="filterbytext">
+		{$skey}: {$sVal|capitalize}
+		{if (isset($aRemoveFilterData.$skey) || !empty($SortBy)) && !empty($aRemoveFilterData.$skey)}
+			{assign var="sShowFinal" value="?"}
+		{else}
+			{assign var="sShowFinal" value="/{$sStrUrlId}"}
+		{/if}
+		{if !empty($aRemoveFilterData.$skey)}
+			{if isset($sFinalMobileValues) && !empty($sFinalMobileValues)}
+				<a href='{$sShowFinal}{$aRemoveFilterData.$skey}&{$sFinalMobileValues}{$SortBy}'>x</a></span>
+				{else}
+				<a href='{$sShowFinal}{$aRemoveFilterData.$skey}{$SortBy}'>x</a></span>
+				{/if}
+				{else}
+				{if isset($sFinalMobileValues) && !empty($sFinalMobileValues)}
+				<a href="{$sShowFinal}{$aRemoveFilterData.$skey}?{$sFinalMobileValues}">x</a></span>
+				{else}
+				<a href="{$sShowFinal}{$aRemoveFilterData.$skey}">x</a></span>
+				{/if}
+				{/if}
+				</span>
+				{/foreach}
+			</div>
+			{if isset($aRemoveFilterVal) && !empty($aRemoveFilterVal)}
+			{if $aRemoveFilterData|@count gt 1}
+			<div class="clearSearch">Clear All<a href="/{$sStrUrlId}"> x</a></div>
+			{/if}
+			{/if}
+		</div>
+		<div class="clearAll"></div>
+	</div>
+	{/if}
+	<div class="paginationlink">
+		<div class="resrange">{$keyPage}Showing <b>{$fromRecords}-{$toRecords}</b> of <b>{$iCountVal}</b> Results</div>
+		<div class="ressearch">Sort by:
+			<select style="color:#656565;font-size:11px" class="ressearchopt1">
+				<option {$select[0]} value="&Sort=catweight:desc">Popularity</option>
+				<option {$select[1]} value="&Sort=fs_uc_sell_price:desc">Highest Price First</option>
+				<option {$select[2]} value="&Sort=fs_uc_sell_price:asc">Lowest Price First</option>
+				<option {$select[3]} value="&Sort=sort_title:asc">Title A-Z</option>
+				<option {$select[4]} value="&Sort=sort_title:desc"> Title Z-A </option>
+			</select>
+		</div>
+		<div class="clearAll"></div>
+	</div>
+
+
+	<div class="product_thumb_block">
+		{if isset($response['body']) && !empty($response['body'])}
+		{assign var="loopCount" value=1}
+		{assign var="totalCount" value=$response['body']|@count}
+		{foreach $response['body'] as $result}
+		<div class="prod_main_div">
+			<div class="product_image">
+				<a href="/{$result['url']}">
+					<img title="{$result['title']}" alt="{$result['title']}" src="{$result['img']}"/>
+				</a>
+			</div>
+			<div class="product_name"><a href="/{$result['url']}" title="{$result['title']}">{$result['title']}</a></div>
+			<div class="prod_price_3">
+				{if $result['sell_price'] gt 0}
+				{if $result['list_price'] gt $result['sell_price']}
+				<span class="prod_mrp"> Rs. {$result['list_price']}</span>
+				{if $result['mop'] == 1}
+				<span class="prod_offerprice">Special Price</span>
+				<span class="valiteDiv_spDiv" style="width: 144px;  font: normal 12px arial;  color: #3A87AD;  background: #D9EDF7;  border: 1px solid #BCE8F1;  padding: 4px 10px 4px 10px;  display: none;  position: relative;  left: 50px;top:4px; z-index: 100000;">Add to cart to see the price</span>
+				{else}
+				<span class="prod_offerprice"> Rs. {$result['sell_price']}</span>
+				{if $result['yousave'] gte 5}
+				<span class="save_offer"><span class="save_offer_hd">You Save: </span>{$result['yousave']}%</span>
+				{/if}
+				{/if}
+				{else}
+				{if $result['mop'] == 1}
+				<span class="prod_offerprice">Special Price</span>
+				<span class="valiteDiv_spDiv" style="width: 144px;  font: normal 12px arial;  color: #3A87AD;  background: #D9EDF7;  border: 1px solid #BCE8F1;  padding: 4px 10px 4px 10px;  display: none;  position: relative;  left: 50px;top:4px; z-index: 100000;">Add to cart to see the price</span>
+				{else}
+				<span class="prod_offerprice"> Rs. {$result['sell_price']}</span>
+				{/if}
+				{/if}
+				{else}
+				<span class="prod_offerprice"> Rs. {$result['list_price']}</span>
+				{/if}
+			</div>
+		</div>
+		{if $loopCount is div by 3}
+		{if $loopCount ne $totalCount}<br>
+		<div class="clearAll"></div>
+		<div class="prodsep"></div>
+		{/if}
+		{/if}
+		{assign var="loopCount" value=$loopCount+1}
+		{/foreach}
+		{else}
+		<div> No Record(s) Found </div>
+		{/if}
+	</div>
+
+	<!-- pagination starts here -->
+	<div class="clearAll spacer15"></div>
+	{if $iTotalPages gt 1}
+	<div class="paginationlink">
+			<span>
+				{$sPaging}
+			</span>
+		<div class="clearAll"></div>
+	</div>
+	{/if}
+
+	<!-- pagination Ends here -->
+</div>
+{else}
+<!-- Show Brand Page -->
+{*<div class="right_block_c1c2">{$brand_block}</div>*}
+<!-- jQuery (required) -->
+<div class="right_block_c1c2">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/sites/all/themes/basic/ci_js/brandpage/jquery.min.js"><\/script>')</script>
+
+
+	<!-- Demo stuff -->
+	<link rel="stylesheet" href="/sites/all/themes/basic/css/ci_css/brand/page.css" media="screen">
+
+	<!-- AnythingSlider -->
+	<link rel="stylesheet" href="/sites/all/themes/basic/css/ci_css/brand/anythingslider.css">
+	<script src="/sites/all/themes/basic/ci_js/brandpage/jquery.anythingslider.js"></script>
+
+	<!-- Ideally, add the stylesheet(s) you are going to use here,
+	  otherwise they are loaded and appended to the <head> automatically and will over-ride the IE stylesheet below -->
+	<link rel="stylesheet" href="/sites/all/themes/basic/css/ci_css/brand/theme-metallic.css">
+	<link rel="stylesheet" href="/sites/all/themes/basic/css/ci_css/brand/brandpage.css">
+
+
+	<script>
+		$(function(){
+
+			$('#slider1').anythingSlider({
+				theme           : 'metallic',
+				easing          : 'easeInOutBack',
+
+				autoPlay            : true,      // This turns off the entire slideshow FUNCTIONALY, not just if it starts running or not
+				pauseOnHover        : true,      // If true & the slideshow is active, the slideshow will pause on hover
+				buildNavigation     : true,      // If true, builds a list of anchor links to link to each panel
+				stopAtEnd           : false,     // If true & the slideshow is active, the slideshow will stop on the last page
+				startText           : null,   // Start button text
+				stopText            : null,    // Stop button text
+				delay               : 1000     // How long between slideshow transitions in AutoPlay mode (in milliseconds)
+			});
+		});
+
+	</script>
+
+	<div id="brand_page">
+		<div class="brand_grayback">
+			<div><img src="/sites/all/themes/basic/images/ci_images/brand_page/store_header.jpg" width="803" height="96" /></div>
+			<div class="shop_now_header">
+				<ul id="slider1">
+					<li>
+						<a href= "http://www.tradus.com/samsung-galaxy-s-advance-i9070-mobile-phone/p/MOB0000004789263" target="_blank">
+							<img src="/sites/all/themes/basic/images/ci_images/brand_page/galaxy-advance.jpg" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.tradus.com/samsung-galaxy-tab2-310-white/p/MOB0000004785815" target="_blank">
+							<img src="/sites/all/themes/basic/images/ci_images/brand_page/tab2-header.jpg" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.tradus.com/samsung-galaxy-n8000-note-tablet/p/MOBM9EM9TDBUNHEU" target="_blank">
+							<img src="/sites/all/themes/basic/images/ci_images/brand_page/note-header.jpg" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.tradus.com/samsung-galaxy-s3-i9300-mobile-phone-white/p/MOBM8UFQK292FHAO" target="_blank">
+							<img src="/sites/all/themes/basic/images/ci_images/brand_page/shop_now_header.jpg" alt="">
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="list_partDiv">
+				<div class="list_leftPart">
+					<div class="samDiv">
+						<p>Samsung Products</p>
+						<div class="list_productDiv">
+							<span class="arrow_left"><a href="#"><img src="/sites/all/themes/basic/images/ci_images/brand_page/arrow_left.png" width="12" height="16"/></a></span>
+                        <span class="mob">
+                            <p><img src="/sites/all/themes/basic/images/ci_images/brand_page/mob1.jpg" width="95" height="109" /> <a href="#">Smart Phones</a></p>
+                        </span>
+                        <span class="mob">
+                            <p><img src="/sites/all/themes/basic/images/ci_images/brand_page/mob1.jpg" width="95" height="109" /> <a href="#">Smart Phones</a></p>
+                        </span>
+                        <span class="mob">
+                            <p><img src="/sites/all/themes/basic/images/ci_images/brand_page/mob1.jpg" width="95" height="109" /> <a href="#">Smart Phones</a></p>
+                        </span>
+							<span class="arrow_right"><a href="#"><img src="/sites/all/themes/basic/images/ci_images/brand_page/arrow_right.png" width="12" height="16"/></a></span>
+							<div class="cl"></div>
+						</div>
+					</div>
+					<div class="samDiv">
+						<h5 class="media_bod">In Media</h5>
+
+						<div class="videoDiv">
+							<iframe width="434" height="245" src="http://www.youtube.com/embed/9nLbIueNuEY" frameborder="0" allowfullscreen></iframe>
+						</div>
+						<h3>The Wonder of 3D</h3>
+						<h4>Get premium-quality 2D picture and incredible 3D depth<br/> with Samsung 3D TVs.</h4>
+					</div>
+					<div class="samDiv">
+
+						<div class="watchDiv">
+							<div><img src="/sites/all/themes/basic/images/ci_images/brand_page/must_watch.gif" width="445" height="32" /></div>
+
+                    <span>
+						<a href="http://www.youtube.com/watch?v=FQgnUYZGM1M" target="_blank">
+							<img src="/sites/all/themes/basic/images/ci_images/brand_page/c_bg1.jpg" width="108" height="60" />
+						</a>
+						<p>Micro Universe-Samsung NX SYSTEM</p>
+						<p class="viewDiv">by samsungimaginng 11,801 views</p>
+
+                    </span>
+                    <span>
+						<a href="http://www.youtube.com/watch?v=FQgnUYZGM1M" target="_blank">
+							<img src="/sites/all/themes/basic/images/ci_images/brand_page/c_bg1.jpg" width="108" height="60" />
+						</a>
+						<p>Micro Universe-Samsung NX SYSTEM</p>
+						<p class="viewDiv">by samsungimaginng 11,801 views</p>
+
+                    </span>
+                    <span>
+						<a href="http://www.youtube.com/watch?v=FQgnUYZGM1M" target="_blank">
+							<img src="/sites/all/themes/basic/images/ci_images/brand_page/c_bg1.jpg" width="108" height="60" />
+						</a>
+						<p>Micro Universe-Samsung NX SYSTEM</p>
+						<p class="viewDiv">by samsungimaginng 11,801 views</p>
+
+                    </span>
+
+							<div class="moreDiv">
+							</div>
+
+							<div class="cl"></div>
+						</div>
+					</div>
+				</div>
+				<div class="list_rightpart"><h1>Best Seller</h1>
+					{$featured_product_strip_1}
+				</div>
+				`
+				<div class="cl"></div>
+			</div>
+			<div class="cl"></div>
+			<div class="samDiv2">
+				<p>Most Wanted Mobile Phones</p>
+				<div class="wantedDiv">
+					<span class="arrow_left1"><a href="#"><img src="/sites/all/themes/basic/images/ci_images/brand_page/arrow_left.png" width="12" height="16"/></a></span>
+					{$featured_product_strip_2}
+					<span class="arrow_right1"><a href="#"><img src="/sites/all/themes/basic/images/ci_images/brand_page/arrow_right.png" width="12" height="16"/></a></span>
+					<div class="cl"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{/if}
+<!-- left block ends here-->
+{else}
+{if $URLProblem ne problem}
+<div style="align:center"> Wrong URL </div>
+{else}
+<div style="align:center"> No Record(s) Found </div>
+{/if}
+{/if}
+
+<div class="clearAll"></div>
+
+</div>
+
+<!-- Main ends here-->
+<center>
+	<div id="Tradus">{$content}</div><div class="clearAll"></div>
+</center>
+<div class="clearAll"></div>
+<div style="background-image: url('/sites/all/themes/basic/images/images_home/shade.gif'); height: 10px; background-repeat: repeat-x; margin-top:10px">
+</div>
+<div class="clearAll"></div>
+
+<div class="clearAll" style="height:4px;"> </div>
+<div style="height: 2px;">  </div>
+<div style="height: 2px;">  </div>
+
+{include file="fb_ipad_promo.tpl"}
+<!--<iframe src='http://ads.ibibo.com/ad/www/ia/iatp.php?rtype=1&siteid=1689&sitetype=703&level=2&trid={$smarty.session.user->uid}&catg={$aAllCategoryname[0]->tid}&scatg=&pageurl={$sMainURL}' scrolling='no' width='1' height='1' marginheight='0' marginwidth='0' frameborder='0'></iframe> -->
+<iframe src="http://www.vizury.com/analyze/analyze.php?account_id=VIZVRM220&param=e200&catid={$aAllCategoryname[0]->tid}&subcat1id=&subcat2id=&section=1&level=1" scrolling="no" width="1" height="1" marginheight="0" marginwidth="0" frameborder="0"></iframe>
+{/block}
