@@ -15,6 +15,12 @@ public class ArrayHelper {
         return ret;
     }
 
+	public static void swap(int []a, int to, int from){
+		int temp = a[to];
+		a[to] = a[from];
+		a[from] = temp;
+	}
+
     public static char [][] toCharArray(String []a){
         int r = a.length;
         int c = a[0].length();
