@@ -25,6 +25,16 @@ public class InputReader {
         return tokenizer.nextToken();
     }
 
+	public String nextLine(){
+		String line ="";
+		try {
+			line = reader.readLine();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		return line;
+	}
+
     public int nextInt(){
         return Integer.parseInt(next());
     }
