@@ -1,0 +1,39 @@
+6 BOGGLE
+6 SINGLE
+8 STANDARD
+9 input.txt
+8 STANDARD
+10 output.txt
+3
+0
+30 2
+one two three
+two three four
+1 1
+1
+1
+93 3
+good dual strange stranger would
+dual would duality dregs gnaw
+dual gnaw draw would student
+2 17
+1
+2
+85 2
+grid grades dread bread thread threads
+grid grids grade brood broods thread threads
+1 9
+1
+8 src/code
+16 -Xmx256m -Xss64m
+4 Main
+11 code.BOGGLE
+39 net.egork.chelper.checkers.TokenChecker
+0 
+0
+10 2012.10.23
+0 
+1
+17 inout.InputReader
+18 inout.OutputWriter
+0
